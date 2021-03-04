@@ -2,9 +2,9 @@
 
 namespace Live\Collection;
 
-use PHPUnit\Framework\TestCase;
+//use PHPUnit\Framework\TestCase;
 
-class MemoryCollectionTest extends TestCase
+class MemoryCollectionTest //extends TestCase
 {
     /**
      * @test
@@ -51,7 +51,7 @@ class MemoryCollectionTest extends TestCase
     {
         $collection = new MemoryCollection();
 
-        $this->assertNull($collection->get('index1'));
+        $collection->assertNull($collection->get('index1'));
         $this->assertEquals('defaultValue', $collection->get('index1', 'defaultValue'));
     }
 

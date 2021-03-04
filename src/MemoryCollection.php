@@ -67,4 +67,10 @@ class MemoryCollection implements CollectionInterface
     {
         $this->data = [];
     }
+
+    public function assertNull($index)
+    {
+        if(is_null ($index))
+            echo 'O valor é nulo. O sistema atribuirá um valor.';
+    }
 }
