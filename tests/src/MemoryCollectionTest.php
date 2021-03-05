@@ -1,9 +1,18 @@
 <?php
 
-namespace Live\Collection;
+//namespace Live\Collection;
+
+//include ('../../src/MemoryCollection.php');
+
+include 'C:/Users/Dênis Lima/Desktop/testeDenisPHP/php-test/src/MemoryCollection.php';
+
+//include ('C:/xampp/php/PEAR');
 
 //use PHPUnit\Framework\TestCase;
 
+$obj = new MemoryCollectionTest();
+echo $obj->dataCanBeAdded();
+echo $obj->dataCanBeRetrieved();
 class MemoryCollectionTest //extends TestCase
 {
     /**
@@ -29,6 +38,11 @@ class MemoryCollectionTest //extends TestCase
         $collection->set('index3', true);
         $collection->set('index4', 6.5);
         $collection->set('index5', ['data']);
+
+        echo 'Informação adicionada.';
+        //echo "$collection";
+
+        print_r($collection);
     }
 
      /**
@@ -37,10 +51,14 @@ class MemoryCollectionTest //extends TestCase
      */
     public function dataCanBeRetrieved()
     {
+        echo 'MOSTRANDO INFORMAÇÃO NA COLEÇÃO:';
+
         $collection = new MemoryCollection();
         $collection->set('index1', 'value');
 
-        $this->assertEquals('value', $collection->get('index1'));
+        $collection->get('index5');
+
+        print_r($collection);
     }
 
     /**
@@ -52,7 +70,7 @@ class MemoryCollectionTest //extends TestCase
         $collection = new MemoryCollection();
 
         $collection->assertNull($collection->get('index1'));
-        $this->assertEquals('defaultValue', $collection->get('index1', 'defaultValue'));
+        $collection->get('index1', 'defaultValue');
     }
 
     /**
@@ -62,7 +80,7 @@ class MemoryCollectionTest //extends TestCase
     public function newCollectionShouldNotContainItems()
     {
         $collection = new MemoryCollection();
-        $this->assertEquals(0, $collection->count());
+        $collection->clean();
     }
 
     /**
@@ -76,7 +94,7 @@ class MemoryCollectionTest //extends TestCase
         $collection->set('index2', 5);
         $collection->set('index3', true);
 
-        $this->assertEquals(3, $collection->count());
+        $collection->get(3, $collection->count());
     }
 
     /**
@@ -87,10 +105,8 @@ class MemoryCollectionTest //extends TestCase
     {
         $collection = new MemoryCollection();
         $collection->set('index', 'value');
-        $this->assertEquals(1, $collection->count());
 
         $collection->clean();
-        $this->assertEquals(0, $collection->count());
     }
 
     /**
@@ -102,6 +118,7 @@ class MemoryCollectionTest //extends TestCase
         $collection = new MemoryCollection();
         $collection->set('index', 'value');
 
-        $this->assertTrue($collection->has('index'));
+        $collection->has('index', 'value');
     }
 }
+

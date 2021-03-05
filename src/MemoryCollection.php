@@ -1,6 +1,8 @@
 <?php
 
-namespace Live\Collection;
+//namespace Live\Collection;
+
+include 'CollectionInterface.php';
 
 /**
  * Memory collection
@@ -74,3 +76,5 @@ class MemoryCollection implements CollectionInterface
             echo 'O valor é nulo. O sistema atribuirá um valor.';
     }
 }
+
+

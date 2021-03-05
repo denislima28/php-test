@@ -1,6 +1,6 @@
 <?php
 
-namespace Live\Collection;
+//namespace Live\Collection;
 
 /**
  * Collection interface

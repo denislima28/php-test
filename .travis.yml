@@ -9,6 +9,7 @@ matrix:
   include:
     - php: 7.2
     - php: 7.3
+    - php: 7.4
 
 before-install:
   - composer self-update
@@ -19,6 +20,7 @@ install:
 script:
   - composer check
   - composer test
+  - vendor/bin/phpunit --coverage-clover coverage.xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
